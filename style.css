@@ -1,0 +1,200 @@
+* , *::after , *::before {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+body {
+    min-height: 100vh;
+    line-height: 1.5;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: initial;
+    background-image: url('media/aizenbackground.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+    transition: 1s ease-in-out;
+    
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: inherit;
+    display: block;
+}
+ul {
+    list-style: none;
+}
+button {
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+img {
+    display: block;
+    width: 100%;
+}
+video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+
+
+.container {
+  width: min(100% , 1140px);
+  margin: 0 auto;
+
+}
+
+.player {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 15px;
+  width: 100%;
+  overflow: hidden;
+  max-width: 650px;
+  margin-inline: auto;
+}
+.img-container{
+  width: 100%;
+  aspect-ratio: 3/2;
+  background-image: url('media/aizen.png');
+  background-position: center;
+  background-size:cover;
+  background-repeat: no-repeat;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  transition: 1s ease-in-out;
+  transform-origin: center;
+  z-index: 2;
+}
+
+.controls{
+  position: relative;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  width: 100%;
+  backdrop-filter: blur(5px);
+  font-size: 25px;
+  max-width: 650px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  z-index: 2;
+  scale: 1;
+  
+}
+.controls .seek_pointer {
+  --seek-postion : 2%;
+  position: absolute;
+  border-radius:50%;
+  background-color: white;
+  width:20px;
+  aspect-ratio: 1;
+  z-index: 5;
+  top: 5%;
+  left: var(--seek-postion);
+  translate:-50% -50%;
+  cursor: pointer;
+  scale: 0;
+  transition: scale .4s ease-in-out , background .4s ease-in-out , left .4s ease-in-out;
+}
+.controls .seek_pointer:hover{
+  scale: 1.5;
+  background-color:rgb(28, 110, 20) ;
+}
+.controls .seeker {
+  position: absolute;
+  --seeker-width : 0%;
+  background-color: hsl(0, 0%, 37%);
+  width:100%;
+  
+  z-index: 3;
+  inset: 0;
+  height: 10px;
+  cursor: pointer;
+}
+.controls .seeker::before {
+  content: '';
+  position: absolute;
+  background-color: white;
+  z-index: 3;
+  inset: 0;
+  height: 10px;
+  width:var(--seeker-width);
+  transition: width .1s ease-in-out;
+}
+.controls .seeker:hover::before{
+  background-color: rgb(28, 110, 20);
+}
+.controls .seeker:hover + .seek_pointer{
+  scale: 1;
+}
+.controls > * {
+  cursor: pointer;
+  padding: 2px;
+  transition: .4s ease-in-out;
+  
+}
+
+@media (width < 400px) {
+
+  .controls {
+    font-size: 20px;
+    gap: 2.5rem;
+  }
+}
+
+.controls i:hover {
+  color: white;
+}
+.controls i.active {
+  color: hsl(333, 88%, 53%);
+}
+.toggler-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.toggler-container :nth-child(n),
+.toggler-container.active :nth-child(n){
+  transition: .4s ease-in-out;
+}
+.toggler-container :nth-child(1){
+  position: absolute;
+  scale: 0;
+}
+.toggler-container.active :nth-child(2){
+  scale: 0;
+}
+.toggler-container.active :nth-child(1){
+  scale: 1;
+}
+.overlay{
+  position: absolute;
+  inset: 0;
+  background-color: white;
+  opacity: .1;
+  z-index: -10;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}

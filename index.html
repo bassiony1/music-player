@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/icon" href="media/bleach-icon.ico" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer  src="script.js"></script>
+    <title>Bleach</title>
+  </head>
+  <body>
+    <audio src="media/aizen.mpeg" preload="metadata" ></audio>
+    <div class="container">
+      <div class="player">
+       
+        <div data-playerimg class="img-container"></div>
+        <div class="controls">
+          <div class="seeker"></div>
+          <div class="seek_pointer"></div>
+          <i data-shuffle class="fa-solid  fa-shuffle"></i>
+          <i data-back class="fa-solid fa-backward-step"></i>
+          <div data-tooglecontainer  data-pause  class="toggler-container">
+            <i class="fa-solid  fa-pause"></i>
+            <i class="fa-solid   fa-play"></i>
+          </div>
+          <i data-next  class="fa-solid fa-forward-step"></i>
+
+          <div data-tooglecontainer data-volume class="toggler-container">
+            <i class="fa-solid fa-volume-mute"></i>
+            <i class="fa-solid fa-volume-high"></i>
+          </div>
+          <div class="overlay"></div>
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
